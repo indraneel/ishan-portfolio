@@ -5,9 +5,8 @@ import os
 import requests
 import urllib.parse
 import mimetypes
-from dotenv import load_dotenv
-
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY") or  ""
 AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID") or  ""
