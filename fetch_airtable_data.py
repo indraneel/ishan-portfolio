@@ -10,11 +10,11 @@ import mimetypes
 
 AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
 AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID")
-print(AIRTABLE_API_KEY, AIRTABLE_BASE_ID)
 
 api = Api(api_key=AIRTABLE_API_KEY)
+print(api.endpoint_url)
 table = api.table(AIRTABLE_BASE_ID, table_name='Pages')
-print(table)
+print(table.url)
 data = table.all()
 df = pd.DataFrame([c['fields'] for c in data])
 for index, row in df.iterrows():
@@ -38,7 +38,7 @@ for index, row in df.iterrows():
 df.replace(to_replace=np.NaN,value="").to_json('public/ishan-site_pages.json',orient='records',indent=2)
 
 table = api.table(AIRTABLE_BASE_ID, table_name='Projects')
-print(table)
+print(table.url)
 data = table.all()
 df = pd.DataFrame([c['fields'] for c in data])
 for index, row in df.iterrows():
