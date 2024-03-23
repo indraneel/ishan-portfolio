@@ -1,4 +1,3 @@
-import * as React from "react";
 import Layout from "../components/Layout";
 import MIME_TO_EXTENSION from "../utils/mimeTypeExtension";
 

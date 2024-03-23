@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import pages from "../../public/ishan-site_pages.json";
 
 function usePages() {

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -17,10 +16,10 @@ function App() {
           path="/projects"
           element={
             <Projects
-              text={pages.filter((p) => p.Page === "Projects")[0].Text}
-              attachments={
-                pages.filter((p) => p.Page === "Projects")[0].Attachments
-              }
+            // text={pages.filter((p) => p.Page === "Projects")[0].Text}
+            // attachments={
+            //   pages.filter((p) => p.Page === "Projects")[0].Attachments
+            // }
             />
           }
         />
@@ -39,10 +38,10 @@ function App() {
           path="/contact"
           element={
             <Contact
-              text={pages.filter((p) => p.Page === "Contact Me")[0].Text}
-              attachments={
-                pages.filter((p) => p.Page === "Contact Me")[0].Attachments
-              }
+            // text={pages.filter((p) => p.Page === "Contact Me")[0].Text}
+            // attachments={
+            //   pages.filter((p) => p.Page === "Contact Me")[0].Attachments
+            // }
             />
           }
         />

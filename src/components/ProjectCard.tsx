@@ -8,12 +8,7 @@ export type ProjectCardProps = {
   description?: string;
 };
 
-function ProjectCard({
-  project,
-  title,
-  photoUrl,
-  description,
-}: ProjectCardProps) {
+function ProjectCard({ project, title, description }: ProjectCardProps) {
   const imageUrl = `${project.Attachments[0].id}.${MIME_TO_EXTENSION[project.Attachments[0].type]}`;
   return (
     <div className="flex cursor-pointer flex-col justify-between border-2 border-solid hover:shadow-md">

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useState } from "react";
 import Layout from "../components/Layout";
 import ProjectCard from "../components/ProjectCard";
@@ -10,7 +9,10 @@ export type ProjectsPageProps = {
   attachments: any;
 };
 
-function ProjectsFilter(selectedProjectTypes, setSelectedProjectTypes) {
+function ProjectsFilter(
+  selectedProjectTypes: string[],
+  setSelectedProjectTypes: React.Dispatch<React.SetStateAction<string[]>>,
+) {
   return (
     <div className="flex w-full flex-row justify-evenly text-2xl">
       {["Featured", "Audio", "Print", "TV/Film"].map((type) => {
@@ -43,9 +45,11 @@ function ProjectsFilter(selectedProjectTypes, setSelectedProjectTypes) {
   );
 }
 
-function Projects({ text, attachment }: ProjectsPageProps) {
+function Projects() {
   const projects = useProjects();
-  const [selectedProjectTypes, setSelectedProjectTypes] = useState([]);
+  const [selectedProjectTypes, setSelectedProjectTypes] = useState<string[]>(
+    [],
+  );
 
   return (
     <Layout sidebarContent={<></>} headerContent={<div>Projects</div>}>
@@ -56,9 +60,9 @@ function Projects({ text, attachment }: ProjectsPageProps) {
             .filter(
               (pj) =>
                 selectedProjectTypes.length === 0 ||
-                arraysOverlap(pj.Type, selectedProjectTypes),
+                arraysOverlap(pj.Type as string[], selectedProjectTypes),
             )
-            .map((pj) => (
+            .map((pj: any) => (
               <ProjectCard
                 key={`project-card-${pj.Title}`}
                 project={pj}

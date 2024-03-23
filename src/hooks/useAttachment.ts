@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import MIME_TO_EXTENSION from "../utils/mimeTypeExtension";
 
 function useAttachment(id: string, mimeType: string) {

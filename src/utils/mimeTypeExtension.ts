@@ -1,4 +1,4 @@
-const MIME_TO_EXTENSION = {
+const MIME_TO_EXTENSION: Record<string, string> = {
   "application/pdf": "pdf",
   "application/msword": "doc",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
