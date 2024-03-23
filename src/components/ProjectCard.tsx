@@ -1,16 +1,28 @@
+import MIME_TO_EXTENSION from "../utils/mimeTypeExtension";
+
 export type ProjectCardProps = {
   children?: React.ReactNode;
+  project?: any;
   title?: string;
   photoUrl?: string;
   description?: string;
 };
 
-function ProjectCard({ title, photoUrl, description }: ProjectCardProps) {
+function ProjectCard({
+  project,
+  title,
+  photoUrl,
+  description,
+}: ProjectCardProps) {
+  const imageUrl = `${project.Attachments[0].id}.${MIME_TO_EXTENSION[project.Attachments[0].type]}`;
   return (
-    <div className="flex h-48 w-56 flex-col justify-between border-2 border-solid">
-      <div className="border-b-2 text-right">Title</div>
-      <div className="">Photo</div>
-      <div className="border-t-2 text-right">Description</div>
+    <div className="flex cursor-pointer flex-col justify-between border-2 border-solid hover:shadow-md">
+      <a href={"/"}>
+        <div className="border-b-2 text-lg">{title}</div>
+
+        <img src={`/${imageUrl}`} />
+        <div className="text-md border-t-2">{description}</div>
+      </a>
     </div>
   );
 }
