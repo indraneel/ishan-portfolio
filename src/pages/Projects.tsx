@@ -64,6 +64,13 @@ function Projects() {
                 selectedProjectTypes.length === 0 ||
                 arraysOverlap(pj.Type as string[], selectedProjectTypes),
             )
+            .sort((a, b) => {
+              const aIsFeatured = a.Type === "Featured";
+              const bIsFeatured = b.Type === "Featured";
+              if (aIsFeatured && !bIsFeatured) return -1;
+              if (!aIsFeatured && bIsFeatured) return 1;
+              return 0;
+            })
             .map((pj: any) => (
               <ProjectCard
                 key={`project-card-${pj.Title}`}
