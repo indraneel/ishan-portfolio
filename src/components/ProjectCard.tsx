@@ -9,10 +9,11 @@ export type ProjectCardProps = {
 };
 
 function ProjectCard({ project, title, description }: ProjectCardProps) {
+  console.log(project);
   const imageUrl = `${project.Attachments[0].id}.${MIME_TO_EXTENSION[project.Attachments[0].type]}`;
   return (
     <div className="flex cursor-pointer flex-col justify-between border-2 border-solid hover:shadow-md">
-      <a href={"/"}>
+      <a href={`${project.Link}`} target="_blank" rel="noreferrer">
         <div className="border-b-2 text-lg">{title}</div>
 
         <img src={`/${imageUrl}`} />

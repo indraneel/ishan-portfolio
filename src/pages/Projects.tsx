@@ -37,7 +37,9 @@ function ProjectsFilter(
               }}
               checked={isChecked}
             />
-            <label htmlFor={`${type}`}>{type}</label>
+            <label className="ml-2" htmlFor={`${type}`}>
+              {type}
+            </label>
           </div>
         );
       })}
@@ -55,7 +57,7 @@ function Projects() {
     <Layout sidebarContent={<></>} headerContent={<div>Projects</div>}>
       <div className="align-center flex w-full flex-col items-center">
         {ProjectsFilter(selectedProjectTypes, setSelectedProjectTypes)}
-        <section className="inline-grid auto-rows-auto grid-cols-2 gap-8">
+        <section className="mt-10 inline-grid w-3/4 auto-rows-auto grid-cols-2 gap-8">
           {projects
             .filter(
               (pj) =>
